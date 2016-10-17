@@ -6,7 +6,11 @@
 <beans>
 
 	<bean id="parentTriangle" class="org.javabrains.Triangle">
-		<property name="pointA" ref="pointA" />
+		<property name="points">
+			<list>
+				<ref bean="pointA" />
+			</list>
+		</property>
 		<!-- <property name="type" value="Equilatrol"></property> -->
 
 		<!-- <constructor-arg value="Equilatoral"/> -->
@@ -33,8 +37,13 @@
 	</bean>
 
 	<bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB" />
+				<ref bean="pointC" />
+			</list>
+		</property>
+
 	</bean>
 
 	<bean id="pointB" class="org.javabrains.Point">
