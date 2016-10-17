@@ -5,62 +5,52 @@
 
 <beans>
 
-<bean id="triangle" class="org.javabrains.Triangle" autowire="byName">
-	<!-- <property name="type" value="Equilatrol"></property> -->
-	
-	<!-- 	<constructor-arg value="Equilatoral"/>		-->
-	<!--    <constructor-arg value="20"/>		-->
-	
-	<!-- <constructor-arg type = "int" value="20"/>
-	<constructor-arg type = "java.lang.String" value="Equilateral"/> -->
-	
-	<!-- <constructor-arg index="0" type="java.lang.String" value="equilateral"/>
-		 <constructor-arg index="1" type="int" value="20"/> -->
+	<bean id="parentTriangle" class="org.javabrains.Triangle">
+		<property name="pointA" ref="pointA" />
+		<!-- <property name="type" value="Equilatrol"></property> -->
 
-	<!-- <property name="pointA">
-		<bean  class="org.javabrains.Point">
-			<property name="x" value="-20"></property>
-			<property name="y" value="0"></property>
-		</bean>
-	</property>
+		<!-- <constructor-arg value="Equilatoral"/> -->
+		<!-- <constructor-arg value="20"/> -->
 
-	<property name="pointB" ref="zero"></property>
-	
-	<property name="pointC">
-		<bean class="org.javabrains.Point">
-			<property name="x" value="20"></property>
-			<property name="y" value="0"></property>
-		</bean>
-	</property> -->
-	
-	
-	<!-- <property name="points">
-	<list>
-			<ref bean="firstPoint"/>
-			<ref bean="zero"/>
-			<ref bean="secondPoint"/>
-	</list>
-	</property> -->
-	
-	
-	
-</bean>
+		<!-- <constructor-arg type = "int" value="20"/> <constructor-arg type = 
+			"java.lang.String" value="Equilateral"/> -->
+
+		<!-- <constructor-arg index="0" type="java.lang.String" value="equilateral"/> 
+			<constructor-arg index="1" type="int" value="20"/> -->
+
+		<!-- <property name="pointA"> <bean class="org.javabrains.Point"> <property 
+			name="x" value="-20"></property> <property name="y" value="0"></property> 
+			</bean> </property> <property name="pointB" ref="zero"></property> <property 
+			name="pointC"> <bean class="org.javabrains.Point"> <property name="x" value="20"></property> 
+			<property name="y" value="0"></property> </bean> </property> -->
 
 
-<bean id="pointB" class="org.javabrains.Point">
-	<property name="x" value="0"></property>
-	<property name="y" value="0"></property>
-</bean>
+		<!-- <property name="points"> <list> <ref bean="firstPoint"/> <ref bean="zero"/> 
+			<ref bean="secondPoint"/> </list> </property> -->
 
- <bean id="pointA" class="org.javabrains.Point">
-	<property name="x" value="-20"></property>
-	<property name="y" value="0"></property>
-</bean>
 
-<bean id="pointC" class="org.javabrains.Point">
-	<property name="x" value="20"></property>
-	<property name="y" value="0"></property>
-</bean>
 
-<alias name="triangle" alias="triangle-alias"/>
+	</bean>
+
+	<bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle">
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+
+	<bean id="pointB" class="org.javabrains.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<bean id="pointA" class="org.javabrains.Point">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<bean id="pointC" class="org.javabrains.Point">
+		<property name="x" value="20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<alias name="triangle" alias="triangle-alias" />
 </beans>
