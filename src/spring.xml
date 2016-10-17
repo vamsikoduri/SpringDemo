@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+<!ENTITY contextInclude SYSTEM "org/springframework/web/portlet/context/WEB-INF/contextInclude.xml">
+]>
+
+<beans>
+
+<bean id="triangle" class="org.javabrains.Triangle" autowire="byName">
+	<!-- <property name="type" value="Equilatrol"></property> -->
+	
+	<!-- 	<constructor-arg value="Equilatoral"/>		-->
+	<!--    <constructor-arg value="20"/>		-->
+	
+	<!-- <constructor-arg type = "int" value="20"/>
+	<constructor-arg type = "java.lang.String" value="Equilateral"/> -->
+	
+	<!-- <constructor-arg index="0" type="java.lang.String" value="equilateral"/>
+		 <constructor-arg index="1" type="int" value="20"/> -->
+
+	<!-- <property name="pointA">
+		<bean  class="org.javabrains.Point">
+			<property name="x" value="-20"></property>
+			<property name="y" value="0"></property>
+		</bean>
+	</property>
+
+	<property name="pointB" ref="zero"></property>
+	
+	<property name="pointC">
+		<bean class="org.javabrains.Point">
+			<property name="x" value="20"></property>
+			<property name="y" value="0"></property>
+		</bean>
+	</property> -->
+	
+	
+	<!-- <property name="points">
+	<list>
+			<ref bean="firstPoint"/>
+			<ref bean="zero"/>
+			<ref bean="secondPoint"/>
+	</list>
+	</property> -->
+	
+	
+	
+</bean>
+
+
+<bean id="pointB" class="org.javabrains.Point">
+	<property name="x" value="0"></property>
+	<property name="y" value="0"></property>
+</bean>
+
+ <bean id="pointA" class="org.javabrains.Point">
+	<property name="x" value="-20"></property>
+	<property name="y" value="0"></property>
+</bean>
+
+<bean id="pointC" class="org.javabrains.Point">
+	<property name="x" value="20"></property>
+	<property name="y" value="0"></property>
+</bean>
+
+<alias name="triangle" alias="triangle-alias"/>
+</beans>
