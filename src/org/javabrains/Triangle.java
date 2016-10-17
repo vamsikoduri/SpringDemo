@@ -1,11 +1,15 @@
 package org.javabrains;
 
+import javax.security.auth.Destroyable;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware,BeanNameAware {
+public class Triangle implements ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean {
 
 	private Point pointA;
 	private Point pointB;
@@ -52,6 +56,18 @@ public class Triangle implements ApplicationContextAware,BeanNameAware {
 	@Override
 	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		this.context = context;
+		
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.err.println("All the properties set for the Triangle Bean");
+		
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.err.println("Destroying the Triangle Bean");
 		
 	}
 
