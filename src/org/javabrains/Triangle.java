@@ -10,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class Triangle implements ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean {
+//public class Triangle implements ApplicationContextAware,BeanNameAware {
 
 	private Point pointA;
 	private Point pointB;
@@ -38,10 +39,10 @@ public class Triangle implements ApplicationContextAware,BeanNameAware,Initializ
 		this.pointC = pointC;
 	}
 	public void draw() {
-		System.err.println("Trinagle Drawn with the below co-ordinates");
-		System.err.println("Point: ( " + pointA.getX() + ", " + pointA.getY() + " )");
-		System.err.println("Point: ( " + pointB.getX() + ", " + pointB.getY() + " )");
-		System.err.println("Point: ( " + pointC.getX() + ", " + pointC.getY() + " )");
+		System.out.println("Trinagle Drawn with the below co-ordinates");
+		System.out.println("Point: ( " + pointA.getX() + ", " + pointA.getY() + " )");
+		System.out.println("Point: ( " + pointB.getX() + ", " + pointB.getY() + " )");
+		System.out.println("Point: ( " + pointC.getX() + ", " + pointC.getY() + " )");
 		
 			
 
@@ -61,14 +62,24 @@ public class Triangle implements ApplicationContextAware,BeanNameAware,Initializ
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.err.println("All the properties set for the Triangle Bean");
+		System.err.println("Interface -- All the properties set for the Triangle Bean");
 		
 	}
 
 	@Override
 	public void destroy() throws Exception {
-		System.err.println("Destroying the Triangle Bean");
+		System.err.println("Interface  -- Destroying the Triangle Bean");
 		
+	}
+	
+	public void myInit()
+	{
+		System.out.println("All the properties set for the Triangle Bean");
+	}
+	
+	public void cleanUp()
+	{
+		System.out.println("All the properties ***Cleaned UP*** for the Triangle Bean");
 	}
 
 }

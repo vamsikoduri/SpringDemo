@@ -5,7 +5,7 @@
 
 <beans>
 
-	<bean id="parentTriangle" class="org.javabrains.Triangle">
+	<bean id="parentTriangle" class="org.javabrains.Triangle" init-method="myInit" destroy-method="cleanUp">
 		<property name="pointA" ref="pointA" />
 		<!-- <property name="type" value="Equilatrol"></property> -->
 
