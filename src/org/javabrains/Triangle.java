@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 public class Triangle implements ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean {
 //public class Triangle implements ApplicationContextAware,BeanNameAware {
 
-// Triangle
+// Triangle object
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
