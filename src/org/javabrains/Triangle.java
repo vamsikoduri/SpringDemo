@@ -9,7 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean {
+public class Triangle implements Shape,ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean {
 //public class Triangle implements ApplicationContextAware,BeanNameAware {
 
 // Triangle object object1

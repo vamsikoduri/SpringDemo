@@ -5,6 +5,12 @@
 
 <beans>
 
+	<bean id="circle" class="org.javabrains.Circle">
+
+		<property name="center" ref="pointA" />
+
+	</bean>
+
 	<bean id="parentTriangle" class="org.javabrains.Triangle"
 		init-method="myInit" destroy-method="cleanUp">
 		<property name="pointA" ref="pointA" />
@@ -54,8 +60,8 @@
 		<property name="y" value="0"></property>
 	</bean>
 	<!-- <bean class="org.javabrains.DisplayNameBeanPostProcessor" /> -->
-	
-	 <bean class="org.javabrains.DisplayNameBeanFactoryPostProcessor" />
+
+	<bean class="org.javabrains.DisplayNameBeanFactoryPostProcessor" />
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="point.properties" />

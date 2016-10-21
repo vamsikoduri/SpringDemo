@@ -18,9 +18,14 @@ public class DrawingApplication {
 		// ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		Triangle triangle = (Triangle) context.getBean("triangle-alias");
-		triangle.draw();
+		/*Triangle triangle = (Triangle) context.getBean("triangle-alias");
+		triangle.draw();*/
+		
+		Shape s = (Shape)context.getBean("circle");
+		s.draw();
 
+		Shape v = (Shape)context.getBean("triangle-alias");
+		v.draw();
 	}
 
 }
