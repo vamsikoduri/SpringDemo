@@ -5,11 +5,12 @@
 
 <beans>
 
-	<bean id="parentTriangle" class="org.javabrains.Triangle" init-method="myInit" destroy-method="cleanUp">
+	<bean id="parentTriangle" class="org.javabrains.Triangle"
+		init-method="myInit" destroy-method="cleanUp">
 		<property name="pointA" ref="pointA" />
 		<property name="pointB" ref="pointB" />
 		<property name="pointC" ref="pointC" />
-		
+
 		<!-- <property name="type" value="Equilatrol"></property> -->
 
 		<!-- <constructor-arg value="Equilatoral"/> -->
@@ -35,26 +36,30 @@
 
 	</bean>
 
-	<!-- <bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
-	</bean>
- -->
+	<!-- <bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle"> 
+		<property name="pointB" ref="pointB" /> <property name="pointC" ref="pointC" 
+		/> </bean> -->
 	<bean id="pointB" class="org.javabrains.Point">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
 
 	<bean id="pointA" class="org.javabrains.Point">
-		<property name="x" value="-20"></property>
-		<property name="y" value="0"></property>
+		<property name="x" value="${pointA.x}"></property>
+		<property name="y" value="${pointA.y}"></property>
 	</bean>
 
 	<bean id="pointC" class="org.javabrains.Point">
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
+	<!-- <bean class="org.javabrains.DisplayNameBeanPostProcessor" /> -->
+	
+	 <bean class="org.javabrains.DisplayNameBeanFactoryPostProcessor" />
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="point.properties" />
 
+	</bean>
 	<alias name="parentTriangle" alias="triangle-alias" />
-	<bean class="org.javabrains.DisplayNameBeanPostProcessor" />
 </beans>
