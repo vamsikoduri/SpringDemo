@@ -7,7 +7,7 @@
 
 	<bean id="circle" class="org.javabrains.Circle">
 
-		<property name="center" ref="pointA" />
+		<!-- <property name="center" ref="pointA" /> -->
 
 	</bean>
 
@@ -41,6 +41,8 @@
 
 
 	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
 
 	<!-- <bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle"> 
 		<property name="pointB" ref="pointB" /> <property name="pointC" ref="pointC" 
