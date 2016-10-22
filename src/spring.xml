@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
-<!ENTITY contextInclude SYSTEM "org/springframework/web/portlet/context/WEB-INF/contextInclude.xml">
-]>
 
-<beans>
+
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" 
+	[ <!ENTITY contextInclude SYSTEM "org/springframework/web/portlet/context/WEB-INF/contextInclude.xml"> 
+	]> -->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
 
 	<bean id="circle" class="org.javabrains.Circle">
 
@@ -11,48 +18,51 @@
 
 	</bean>
 
-	<bean id="parentTriangle" class="org.javabrains.Triangle"
-		init-method="myInit" destroy-method="cleanUp">
-		<property name="pointA" ref="pointA" />
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
-
-		<!-- <property name="type" value="Equilatrol"></property> -->
-
-		<!-- <constructor-arg value="Equilatoral"/> -->
-		<!-- <constructor-arg value="20"/> -->
-
-		<!-- <constructor-arg type = "int" value="20"/> <constructor-arg type = 
-			"java.lang.String" value="Equilateral"/> -->
-
-		<!-- <constructor-arg index="0" type="java.lang.String" value="equilateral"/> 
-			<constructor-arg index="1" type="int" value="20"/> -->
-
-		<!-- <property name="pointA"> <bean class="org.javabrains.Point"> <property 
-			name="x" value="-20"></property> <property name="y" value="0"></property> 
-			</bean> </property> <property name="pointB" ref="zero"></property> <property 
-			name="pointC"> <bean class="org.javabrains.Point"> <property name="x" value="20"></property> 
-			<property name="y" value="0"></property> </bean> </property> -->
-
-
-		<!-- <property name="points"> <list> <ref bean="firstPoint"/> <ref bean="zero"/> 
-			<ref bean="secondPoint"/> </list> </property> -->
 
 
 
-	</bean>
-	
-	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+	<!-- <bean id="parentTriangle" class="org.javabrains.Triangle" init-method="myInit" 
+		destroy-method="cleanUp"> <property name="pointA" ref="pointA" /> <property 
+		name="pointB" ref="pointB" /> <property name="pointC" ref="pointC" /> -->
+
+	<!-- <property name="type" value="Equilatrol"></property> -->
+
+	<!-- <constructor-arg value="Equilatoral"/> -->
+	<!-- <constructor-arg value="20"/> -->
+
+	<!-- <constructor-arg type = "int" value="20"/> <constructor-arg type = 
+		"java.lang.String" value="Equilateral"/> -->
+
+	<!-- <constructor-arg index="0" type="java.lang.String" value="equilateral"/> 
+		<constructor-arg index="1" type="int" value="20"/> -->
+
+	<!-- <property name="pointA"> <bean class="org.javabrains.Point"> <property 
+		name="x" value="-20"></property> <property name="y" value="0"></property> 
+		</bean> </property> <property name="pointB" ref="zero"></property> <property 
+		name="pointC"> <bean class="org.javabrains.Point"> <property name="x" value="20"></property> 
+		<property name="y" value="0"></property> </bean> </property> -->
+
+
+	<!-- <property name="points"> <list> <ref bean="firstPoint"/> <ref bean="zero"/> 
+		<ref bean="secondPoint"/> </list> </property> -->
+
+
+
+	<!-- </bean> -->
+
 
 	<!-- <bean id="triangle" class="org.javabrains.Triangle" parent="parentTriangle"> 
 		<property name="pointB" ref="pointB" /> <property name="pointC" ref="pointC" 
 		/> </bean> -->
+
 	<bean id="pointB" class="org.javabrains.Point">
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
 
+
 	<bean id="pointA" class="org.javabrains.Point">
+		<qualifier value="circleQualifier"></qualifier>
 		<property name="x" value="${pointA.x}"></property>
 		<property name="y" value="${pointA.y}"></property>
 	</bean>
@@ -61,13 +71,22 @@
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	<!-- <bean class="org.javabrains.DisplayNameBeanPostProcessor" /> -->
+	<bean class="org.javabrains.DisplayNameBeanPostProcessor" />
 
 	<bean class="org.javabrains.DisplayNameBeanFactoryPostProcessor" />
+
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="point.properties" />
-
 	</bean>
+
+	<!-- <bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<bean
+		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+ -->
+
+	<context:annotation-config />
 	<alias name="parentTriangle" alias="triangle-alias" />
 </beans>

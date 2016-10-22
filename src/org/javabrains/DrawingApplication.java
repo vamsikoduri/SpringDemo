@@ -24,8 +24,8 @@ public class DrawingApplication {
 		Shape s = (Shape)context.getBean("circle");
 		s.draw();
 
-		Shape v = (Shape)context.getBean("triangle-alias");
-		v.draw();
+		/*Shape v = (Shape)context.getBean("triangle-alias");
+		v.draw();*/
 	}
 
 }
