@@ -12,11 +12,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
 	xmlns:context="http://www.springframework.org/schema/context">
 
-	<bean id="circle" class="org.javabrains.Circle">
+	<!-- <bean id="circle" class="org.javabrains.Circle">
 
-		<!-- <property name="center" ref="pointA" /> -->
+		<property name="center" ref="pointA" />
 
-	</bean>
+	</bean> -->
 
 
 
@@ -84,5 +84,8 @@
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<context:annotation-config />
-	<alias name="parentTriangle" alias="triangle-alias" />
+	<context:component-scan base-package="org.javabrains"></context:component-scan>
+	
+	<!-- <alias name="parentTriangle" alias="triangle-alias" /> -->
+	
 </beans>
