@@ -67,25 +67,21 @@
 		<property name="y" value="${pointA.y}"></property>
 	</bean>
 
-	<bean id="pointC" class="org.javabrains.Point">
+	<bean id="pointC" class="org.javabrains.Point"> 
 		<property name="x" value="20"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	<bean class="org.javabrains.DisplayNameBeanPostProcessor" />
+	
+	<!-- <bean class="org.javabrains.DisplayNameBeanPostProcessor" /> -->
 
-	<bean class="org.javabrains.DisplayNameBeanFactoryPostProcessor" />
-
+	
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="point.properties" />
 	</bean>
 
-	<!-- <bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-
 	<bean
-		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
- -->
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<context:annotation-config />
 	<alias name="parentTriangle" alias="triangle-alias" />
