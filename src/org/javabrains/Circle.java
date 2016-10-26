@@ -56,8 +56,10 @@ public class Circle implements Shape {
 	
 	@Override
 	public void draw() {
-		System.out.println("Drawing a circle !!");
-		System.out.println("Point: ( " + center.getX() + ", " + center.getY() + " )");
+		System.out.println(this.messageBean.getMessage("circle.draw", null,"DefaultGreetings From circel draw",null));
+		System.out.println(this.messageBean.getMessage("point", new Object[]{center.getX(),center.getY()},"DefaultGreetings From Point",null));
+		//System.out.println("Drawing a circle !!");
+		//System.out.println("Point: ( " + center.getX() + ", " + center.getY() + " )");
 		System.out.println(this.messageBean.getMessage("greetings", null,"DefaultGreetings",null));
 	}
 
