@@ -26,6 +26,10 @@ public class DrawingApplication {
 
 		/*Shape v = (Shape)context.getBean("triangle-alias");
 		v.draw();*/
+		
+		/* getting properties from the resource bundle */
+		
+		//System.out.println(context.getMessage("greetings", null,"DefaultGreetings",null));
 	}
 
 }
